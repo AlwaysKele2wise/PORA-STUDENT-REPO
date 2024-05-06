@@ -5,20 +5,20 @@ require("dotenv").config();
 const app = express()
 
 //secret key
-//console.log(process.env.Deborah_key)
+//console.log(process.env.Divine_key)
 
 
 //listening to the port
 const port = process.env.PORT
-app.listen(port, () => {
-   console.log("listening on port:" + port)
-})
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json({}));
 
 
 //routing
 app.get("/student/age", ( req, res, next) => {
     const studentDetails ={
-            name: "Divine Ukpai",
+            name: "Divine",
             age: 7,
             clas: 2014,
             address: "Aba, Ukaegbu"
@@ -52,7 +52,7 @@ app.get("/student/age", ( req, res, next) => {
     const {full_name, age, address } = req.body;
     
     const user_details = {
-            email:"kele2wise@gmail.com",
+            email:"divine@gmail.com",
             password: "234857463893",
             full_name: full_name,
             age: age,
@@ -71,7 +71,7 @@ app.get("/student/age", ( req, res, next) => {
        
           const user_details = {
             password: "7030385813",
-            full_name: "Adid aka De Greater"
+            full_name: "Adidi aka De Greater"
         }
          
                res.send({
@@ -100,6 +100,12 @@ app.get("/student/age", ( req, res, next) => {
        });
      
      });
+
+   
+app.listen(port, () => {
+   console.log("listening on port:" + port)
+})
+
 
 
 
