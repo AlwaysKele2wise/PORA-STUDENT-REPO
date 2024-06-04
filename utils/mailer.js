@@ -1,18 +1,19 @@
 const nodemailer = require('nodemailer');
+const { getMaxListeners } = require('../models/userModels');
 
 const mailer = async (user) => {
     try {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user: process.env.EMAIL,
-                pass: process.env.PASSWORD
+                user: "alwayskele2wise@gmail.com",
+                pass: "zfbprqgywealamsh"
             }
         });
 
         const mailOptions = {
-            from: process.env.EMAIL,
-            to: user.email,
+            from: "alwayskele2wise@gmail.com",
+            to: email,
             subject: 'Welcome to Opex',
             text: `Hi ${user.firstName} ${user.lastName}, \n\n Welcome to Opex`
         };
