@@ -25,6 +25,7 @@ const userSchema = new mongoose.Schema({
         type : String,
         required : [true, 'Phone Number is required']
     },
+ 
     password: {
         type : String,
         required : [true, 'Please Enter your password'],
@@ -60,6 +61,6 @@ userSchema.methods.comparePassword = async function(userPassword, dbPassword) {
 }
 
 
-const UserModel = mongoose.model('User', userSchema)
+const UserModel = mongoose.model('users', userSchema)
 
 module.exports = UserModel;
